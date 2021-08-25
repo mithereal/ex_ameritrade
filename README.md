@@ -12,7 +12,7 @@ by adding `ameritrade` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ameritrade, "~> 0.1.0"}
+    {:ameritrade, "~> 1.0.0"}
   ]
 end
 ```
