@@ -42,8 +42,9 @@ defmodule Ameritrade.Option do
             percentChange: 0,
             markChange: 0,
             markPercentChange: 0
+            end
 
-  defmodule Chain do
+  defmodule Ameritrade.Option.Chain do
     defstruct symbol: nil,
               status: nil,
               underlying: nil,
@@ -59,7 +60,7 @@ defmodule Ameritrade.Option do
               putExpDateMap: nil
   end
 
-  defmodule Underlying do
+  defmodule Ameritrade.Option.Underlying do
     defstruct ask: 0,
               askSize: 0,
               bid: 0,
@@ -85,14 +86,14 @@ defmodule Ameritrade.Option do
               tradeTime: 0
   end
 
-  defmodule Deliverables do
+  defmodule Ameritrade.Option.Deliverables do
     defstruct symbol: nil,
               assetType: nil,
               deliverableUnits: nil,
               currencyType: nil
   end
 
-  defmodule Experation.Date do
+  defmodule Ameritrade.Option.Experation.Date do
     defstruct date: nil
   end
-end
+

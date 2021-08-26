@@ -1,8 +1,9 @@
 defmodule Ameritrade.Watchlist do
   defstruct name: nil,
             watchlistItems: []
+            end
 
-  defmodule Items do
+  defmodule Ameritrade.Watchlist.Items do
     defstruct quantity: 0,
               averagePrice: 0,
               commission: 0,
@@ -10,11 +11,11 @@ defmodule Ameritrade.Watchlist do
               instrument: nil
   end
 
-  defmodule Instrument do
+  defmodule Ameritrade.Watchlist.Instrument do
     defstruct symbol: nil,
               assetType: nil
   end
-end
+
 
 defmodule Ameritrade.Watchlists do
   defstruct name: nil,
@@ -22,8 +23,9 @@ defmodule Ameritrade.Watchlists do
             accountId: nil,
             status: nil,
             watchlistItems: []
+            end
 
-  defmodule Items do
+  defmodule Ameritrade.Watchlists.Items do
     defstruct sequenceId: 0,
               quantity: 0,
               averagePrice: 0,
@@ -33,9 +35,9 @@ defmodule Ameritrade.Watchlists do
               status: nil
   end
 
-  defmodule Instrument do
+  defmodule Ameritrade.Watchlists.Instrument do
     defstruct symbol: nil,
               description: nil,
               assetType: nil
   end
-end
+

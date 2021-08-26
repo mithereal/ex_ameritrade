@@ -2,8 +2,9 @@ defmodule Ameritrade.Candles do
   defstruct candles: [],
             empty: false,
             symbol: nil
+            end
 
-  defstruct Candle do
+  defstruct Ameritrade.Candle do
     defstruct close: 0,
               datetime: 0,
               high: 0,
@@ -11,4 +12,3 @@ defmodule Ameritrade.Candles do
               open: 0,
               volume: 0
   end
-end
