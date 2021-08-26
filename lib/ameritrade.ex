@@ -55,97 +55,97 @@ defmodule Ameritrade do
           params = Enum.join(fields, ",")
           "https://api.tdameritrade.com/v1/accounts/#{id}?fields=#{params}"
       end
+  end
 
-    @doc """
-    Account balances, positions, and orders for all linked accounts.
-    """
-    def get_accounts(token, id, fields \\ []) do
-      path =
-        case(Enum.count(fields)) do
-          0 ->
-            "https://api.tdameritrade.com/v1/accounts"
+  @doc """
+  Account balances, positions, and orders for all linked accounts.
+  """
+  def get_accounts(token, id, fields \\ []) do
+    path =
+      case(Enum.count(fields)) do
+        0 ->
+          "https://api.tdameritrade.com/v1/accounts"
 
-          _ ->
-            params = Enum.join(fields, ",")
-            "https://api.tdameritrade.com/v1/accounts/?fields=#{params}"
-        end
+        _ ->
+          params = Enum.join(fields, ",")
+          "https://api.tdameritrade.com/v1/accounts/?fields=#{params}"
+      end
 
-      OAuth.get(token, path)
-    end
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    Get quote for one or more symbols
+  @doc """
+  Get quote for one or more symbols
 
-    """
-    def get_quotes(token) do
-      path = "https://api.tdameritrade.com/v1/marketdata/quotes"
-      OAuth.get(token, path)
-    end
+  """
+  def get_quotes(token) do
+    path = "https://api.tdameritrade.com/v1/marketdata/quotes"
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    Get quote for a symbol
+  @doc """
+  Get quote for a symbol
 
-    """
-    def get_quote(token, symbol \\ "GOOGL") do
-      path = "https://api.tdameritrade.com/v1/marketdata/#{symbol}/quotes"
-      OAuth.get(token, path)
-    end
+  """
+  def get_quote(token, symbol \\ "GOOGL") do
+    path = "https://api.tdameritrade.com/v1/marketdata/#{symbol}/quotes"
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    Orders for a specific account.
-    """
-    def get_orders_by_path(token, account_id, order_id) do
-      path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/"
-      OAuth.get(token, path)
-    end
+  @doc """
+  Orders for a specific account.
+  """
+  def get_orders_by_path(token, account_id, order_id) do
+    path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/"
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts.
-    """
-    def get_orders_by_query(token, %{
-          accountId: accountId,
-          maxResults: maxResults,
-          fromEnteredTime: fromEnteredTime,
-          toEnteredTime: toEnteredTime,
-          status: status
-        }) do
-      path =
-        "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{fromEnteredTime}&toEnteredTime=#{toEnteredTime}&status#{status}"
+  @doc """
+  All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts.
+  """
+  def get_orders_by_query(token, %{
+        accountId: accountId,
+        maxResults: maxResults,
+        fromEnteredTime: fromEnteredTime,
+        toEnteredTime: toEnteredTime,
+        status: status
+      }) do
+    path =
+      "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{fromEnteredTime}&toEnteredTime=#{toEnteredTime}&status#{status}"
 
-      OAuth.get(token, path)
-    end
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    Get a specific order for a specific account.
-    """
-    def get_order(token, account_id, order_id) do
-      path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
-      OAuth.get(token, path)
-    end
+  @doc """
+  Get a specific order for a specific account.
+  """
+  def get_order(token, account_id, order_id) do
+    path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
+    OAuth.get(token, path)
+  end
 
-    @doc """
-    Cancel a specific order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
-    """
-    def cancel_order(token, account_id, order_id) do
-      path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
-      OAuth.delete(token, path)
-    end
+  @doc """
+  Cancel a specific order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  """
+  def cancel_order(token, account_id, order_id) do
+    path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
+    OAuth.delete(token, path)
+  end
 
-    @doc """
-    Place an order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
-    """
-    def place_order(token, account_id, order) do
-      path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders"
-      OAuth.post(token, path, order)
-    end
+  @doc """
+  Place an order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  """
+  def place_order(token, account_id, order) do
+    path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders"
+    OAuth.post(token, path, order)
+  end
 
-    @doc """
-    Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
-    """
-    def replace_order(token, account_id, order_id, new_order_data) do
-      path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
-      OAuth.put(token, path, new_order_data)
-    end
+  @doc """
+  Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  """
+  def replace_order(token, account_id, order_id, new_order_data) do
+    path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
+    OAuth.put(token, path, new_order_data)
   end
 
   @doc """
