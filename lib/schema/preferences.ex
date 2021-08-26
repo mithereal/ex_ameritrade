@@ -1,5 +1,5 @@
 defmodule Ameritrade.Preferences do
-  defmodule(
+  defstruct(
     expressTrading: false,
     directOptionsRouting: false,
     directEquityRouting: false,

@@ -299,10 +299,10 @@ defmodule Ameritrade do
   @doc """
   Create watchlist for specific account.This method does not verify that the symbol or asset type are valid.
   """
-  def create_watchlist(token, accountId) do
+  def create_watchlist(token, accountId, data) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists"
 
-    OAuth.post(token, path)
+    OAuth.post(token, path, data)
   end
 
   @doc """

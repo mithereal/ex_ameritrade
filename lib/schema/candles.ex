@@ -4,7 +4,7 @@ defmodule Ameritrade.Candles do
             symbol: nil
             end
 
-  defstruct Ameritrade.Candle do
+  defmodule Ameritrade.Candle do
     defstruct close: 0,
               datetime: 0,
               high: 0,
