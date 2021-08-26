@@ -1,4 +1,5 @@
 defmodule Ameritrade.Preferences do
+@moduledoc false
   defstruct(
     expressTrading: false,
     directOptionsRouting: false,

@@ -1,8 +1,10 @@
 defmodule Ameritrade.Account do
+  @moduledoc false
   defstruct securitiesAccount: nil
 end
 
 defmodule Ameritrade.Account.Cash do
+@moduledoc false
   defstruct type: nil,
             accountId: nil,
             roundTrips: 0,
@@ -32,6 +34,7 @@ defmodule Ameritrade.Account.Cash do
 end
 
 defmodule Ameritrade.Account.Margin do
+@moduledoc false
   defstruct type: nil,
             accountId: nil,
             roundTrips: 0,

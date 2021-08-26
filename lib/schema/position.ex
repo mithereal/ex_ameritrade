@@ -1,4 +1,5 @@
 defmodule Ameritrade.Position do
+@moduledoc false
   defstruct shortQuantity: 0,
             averagePrice: 0,
             currentDayProfitLoss: 0,

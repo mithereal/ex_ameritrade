@@ -1,7 +1,5 @@
 defmodule Ameritrade.User.Principals do
-  @moduledoc """
-  Ameritrade User Principals.
-  """
+@moduledoc false
 
   alias Ameritrade.User.Quotes
   alias Ameritrade.User.StreamerInfo
@@ -40,10 +38,7 @@ defmodule Ameritrade.User.Principals do
 end
 
 defmodule Ameritrade.User.StreamerInfo do
-  @moduledoc """
-  Ameritrade User StreamerInfo.
-  """
-
+@moduledoc false
   @type t :: %__MODULE__{
           streamerBinaryUrl: String.t() | nil,
           streamerSocketUrl: String.t() | nil,
@@ -66,9 +61,7 @@ defmodule Ameritrade.User.StreamerInfo do
 end
 
 defmodule Ameritrade.User.Quotes do
-  @moduledoc """
-  Ameritrade User Quotes.
-  """
+@moduledoc false
 
   @type t :: %__MODULE__{
           isNyseDelayed: Boolean.t(),
@@ -90,9 +83,7 @@ defmodule Ameritrade.User.Quotes do
 end
 
 defmodule Ameritrade.User.StreamerSubscriptionKeys do
-  @moduledoc """
-  Ameritrade User StreamerSubscriptionKeys.
-  """
+@moduledoc false
 
   @type t :: %__MODULE__{
           keys: list
@@ -102,10 +93,7 @@ defmodule Ameritrade.User.StreamerSubscriptionKeys do
 end
 
 defmodule Ameritrade.User.Account do
-  @moduledoc """
-  Ameritrade User Account.
-
-  """
+@moduledoc false
 
   alias Ameritrade.User.Account.Preferences
   alias Ameritrade.User.Account.Authorizations
@@ -136,9 +124,7 @@ defmodule Ameritrade.User.Account do
 end
 
 defmodule Ameritrade.User.Account.Preferences do
-  @moduledoc """
-  Ameritrade User Account Preferences.
-  """
+@moduledoc false
 
   @type t :: %__MODULE__{
           expressTrading: Boolean.t(),
@@ -174,10 +160,7 @@ defmodule Ameritrade.User.Account.Preferences do
 end
 
 defmodule Ameritrade.User.Account.Authorizations do
-  @moduledoc """
-  Ameritrade User Account Authorizations.
-
-  """
+@moduledoc false
 
   @type t :: %__MODULE__{
           apex: Boolean.t(),

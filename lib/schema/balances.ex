@@ -1,4 +1,5 @@
 defmodule Ameritrade.Balances do
+@moduledoc false
   defstruct accruedInterest: 0,
             availableFundsNonMarginableTrade: 0,
             bondValue: 0,

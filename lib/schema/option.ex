@@ -1,4 +1,5 @@
 defmodule Ameritrade.Option do
+@moduledoc false
   defstruct putCall: nil,
             symbol: nil,
             description: nil,
@@ -45,6 +46,7 @@ defmodule Ameritrade.Option do
             end
 
   defmodule Ameritrade.Option.Chain do
+  @moduledoc false
     defstruct symbol: nil,
               status: nil,
               underlying: nil,
@@ -61,6 +63,7 @@ defmodule Ameritrade.Option do
   end
 
   defmodule Ameritrade.Option.Underlying do
+  @moduledoc false
     defstruct ask: 0,
               askSize: 0,
               bid: 0,
@@ -87,6 +90,7 @@ defmodule Ameritrade.Option do
   end
 
   defmodule Ameritrade.Option.Deliverables do
+  @moduledoc false
     defstruct symbol: nil,
               assetType: nil,
               deliverableUnits: nil,
@@ -94,6 +98,7 @@ defmodule Ameritrade.Option do
   end
 
   defmodule Ameritrade.Option.Experation.Date do
+  @moduledoc false
     defstruct date: nil
   end
 

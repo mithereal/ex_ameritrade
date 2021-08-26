@@ -1,4 +1,5 @@
 defmodule Ameritrade.Strategies do
+@moduledoc false
   defstruct session: 0,
             duration: 0,
             orderType: 0,

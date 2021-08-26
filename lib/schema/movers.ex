@@ -1,4 +1,5 @@
 defmodule Ameritrade.Movers do
+@moduledoc false
   defstruct change: 0,
             description: nil,
             direction: nil,

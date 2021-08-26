@@ -1,7 +1,5 @@
 defmodule Ameritrade.Quote.Index do
-  @moduledoc """
-  Ameritrade Quote index.
-  """
+@moduledoc false
 
   defstruct symbol: nil,
             description: nil,
@@ -22,10 +20,7 @@ defmodule Ameritrade.Quote.Index do
 end
 
 defmodule Ameritrade.Quote.MutualFund do
-  @moduledoc """
-  Ameritrade Quote MutualFund.
-  """
-
+@moduledoc false
   defstruct symbol: nil,
             description: nil,
             closePrice: 0,
@@ -46,9 +41,7 @@ defmodule Ameritrade.Quote.MutualFund do
 end
 
 defmodule Ameritrade.Quote.Future do
-  @moduledoc """
-  Ameritrade Quote Future.
-  """
+@moduledoc false
 
   defstruct symbol: nil,
             bidPriceInDouble: 0,
@@ -83,9 +76,7 @@ defmodule Ameritrade.Quote.Future do
 end
 
 defmodule Ameritrade.Quote.FutureOptions do
-  @moduledoc """
-  Ameritrade Quote FutureOptions.
-  """
+@moduledoc false
 
   defstruct symbol: nil,
             bidPriceInDouble: 0,
@@ -127,10 +118,7 @@ defmodule Ameritrade.Quote.FutureOptions do
 end
 
 defmodule Ameritrade.Quote.Option do
-  @moduledoc """
-  Ameritrade Quote Option.
-  """
-
+@moduledoc false
   defstruct symbol: nil,
             description: nil,
             bidPrice: 0,
@@ -172,10 +160,7 @@ defmodule Ameritrade.Quote.Option do
 end
 
 defmodule Ameritrade.Quote.Forex do
-  @moduledoc """
-  Ameritrade Quote Forex.
-  """
-
+@moduledoc false
   defstruct symbol: nil,
             bidPriceInDouble: 0,
             askPriceInDouble: 0,
@@ -203,9 +188,7 @@ defmodule Ameritrade.Quote.Forex do
 end
 
 defmodule Ameritrade.Quote.ETF do
-  @moduledoc """
-  Ameritrade Quote ETF.
-  """
+@moduledoc false
 
   defstruct symbol: nil,
             description: nil,
@@ -247,9 +230,7 @@ defmodule Ameritrade.Quote.ETF do
 end
 
 defmodule Ameritrade.Quote.Equity do
-  @moduledoc """
-  Ameritrade Quote Equity.
-  """
+@moduledoc false
 
   defstruct symbol: nil,
             description: nil,

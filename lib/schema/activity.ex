@@ -1,5 +1,7 @@
 defmodule Ameritrade.Activity do
+@moduledoc false
   defmodule Execution do
+  @moduledoc false
     defstruct activityType: nil,
               executionType: nil,
               quantity: 0,
@@ -8,6 +10,7 @@ defmodule Ameritrade.Activity do
   end
 
   defmodule Execution.Legs do
+  @moduledoc false
     defstruct legId: 0,
               quantity: 0,
               mismarkedQuantity: 0,
