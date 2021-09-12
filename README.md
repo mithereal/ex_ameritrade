@@ -13,7 +13,7 @@ Modules are in the form ex. Ameritrade.Account, Ameritrade.Subscription,  Amerit
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+If [available in Hex](https://hex.pm/packages/ameritrade), the package can be installed
 by adding `ameritrade` to your list of dependencies in `mix.exs`:
 
 ```elixir
