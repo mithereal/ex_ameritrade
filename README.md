@@ -4,7 +4,11 @@
 
 This module gives us oath access to the td ameritrade api located at "https://developer.tdameritrade.com/apis"
 
-We have various modules to deal with request json responses and converting those to structs I didnt feel we needed documentation for something as trivial
+We have various modules to deal with request json responses and converting those to structs 
+
+I didnt feel we needed documentation for something as trivial
+
+
 Modules are in the form ex. Ameritrade.Account, Ameritrade.Subscription,  Ameritrade.Subscription.Key ... modules are located under /lib/schema 
 
 ## Installation
