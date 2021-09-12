@@ -1,5 +1,6 @@
 defmodule Ameritrade.Movers do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct change: 0,
             description: nil,
             direction: nil,

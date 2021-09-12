@@ -1,6 +1,6 @@
 defmodule Ameritrade.Quote.Index do
-@moduledoc false
-
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             description: nil,
             lastPrice: 0,
@@ -20,7 +20,8 @@ defmodule Ameritrade.Quote.Index do
 end
 
 defmodule Ameritrade.Quote.MutualFund do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             description: nil,
             closePrice: 0,
@@ -41,8 +42,8 @@ defmodule Ameritrade.Quote.MutualFund do
 end
 
 defmodule Ameritrade.Quote.Future do
-@moduledoc false
-
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             bidPriceInDouble: 0,
             askPriceInDouble: 0,
@@ -76,8 +77,8 @@ defmodule Ameritrade.Quote.Future do
 end
 
 defmodule Ameritrade.Quote.FutureOptions do
-@moduledoc false
-
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             bidPriceInDouble: 0,
             askPriceInDouble: 0,
@@ -118,7 +119,8 @@ defmodule Ameritrade.Quote.FutureOptions do
 end
 
 defmodule Ameritrade.Quote.Option do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             description: nil,
             bidPrice: 0,
@@ -160,7 +162,8 @@ defmodule Ameritrade.Quote.Option do
 end
 
 defmodule Ameritrade.Quote.Forex do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             bidPriceInDouble: 0,
             askPriceInDouble: 0,
@@ -188,8 +191,8 @@ defmodule Ameritrade.Quote.Forex do
 end
 
 defmodule Ameritrade.Quote.ETF do
-@moduledoc false
-
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             description: nil,
             bidPrice: 0,
@@ -230,8 +233,8 @@ defmodule Ameritrade.Quote.ETF do
 end
 
 defmodule Ameritrade.Quote.Equity do
-@moduledoc false
-
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             description: nil,
             bidPrice: 0,

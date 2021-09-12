@@ -1,7 +1,8 @@
 defmodule Ameritrade.Instrument do
-@moduledoc false
-  defmodule Equity do
   @moduledoc false
+  defmodule Equity do
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct assetType: nil,
               cusip: nil,
               symbol: nil,
@@ -9,7 +10,8 @@ defmodule Ameritrade.Instrument do
   end
 
   defmodule FixedIncome do
-  @moduledoc false
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct assetType: nil,
               cusip: nil,
               symbol: nil,
@@ -20,7 +22,8 @@ defmodule Ameritrade.Instrument do
   end
 
   defmodule MutualFund do
-  @moduledoc false
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct assetType: nil,
               cusip: nil,
               symbol: nil,
@@ -29,7 +32,8 @@ defmodule Ameritrade.Instrument do
   end
 
   defmodule CashEquivalent do
-  @moduledoc false
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct assetType: nil,
               cusip: nil,
               symbol: nil,
@@ -38,7 +42,8 @@ defmodule Ameritrade.Instrument do
   end
 
   defmodule Option do
-  @moduledoc false
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct assetType: nil,
               cusip: nil,
               symbol: nil,
@@ -51,7 +56,8 @@ defmodule Ameritrade.Instrument do
   end
 
   defmodule Option.Deliverables do
-  @moduledoc false
+    @moduledoc false
+    @derive Jason.Encoder
     defstruct symbol: nil,
               deliverableUnits: 0,
               currencyType: nil,

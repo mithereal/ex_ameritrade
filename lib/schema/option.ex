@@ -1,5 +1,6 @@
 defmodule Ameritrade.Option do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct putCall: nil,
             symbol: nil,
             description: nil,
@@ -43,62 +44,65 @@ defmodule Ameritrade.Option do
             percentChange: 0,
             markChange: 0,
             markPercentChange: 0
-            end
+end
 
-  defmodule Ameritrade.Option.Chain do
+defmodule Ameritrade.Option.Chain do
   @moduledoc false
-    defstruct symbol: nil,
-              status: nil,
-              underlying: nil,
-              strategy: nil,
-              interval: 0,
-              isDelayed: false,
-              isIndex: false,
-              daysToExpiration: 0,
-              interestRate: 0,
-              underlyingPrice: 0,
-              volatility: 0,
-              callExpDateMap: nil,
-              putExpDateMap: nil
-  end
+  @derive Jason.Encoder
+  defstruct symbol: nil,
+            status: nil,
+            underlying: nil,
+            strategy: nil,
+            interval: 0,
+            isDelayed: false,
+            isIndex: false,
+            daysToExpiration: 0,
+            interestRate: 0,
+            underlyingPrice: 0,
+            volatility: 0,
+            callExpDateMap: nil,
+            putExpDateMap: nil
+end
 
-  defmodule Ameritrade.Option.Underlying do
+defmodule Ameritrade.Option.Underlying do
   @moduledoc false
-    defstruct ask: 0,
-              askSize: 0,
-              bid: 0,
-              bidSize: 0,
-              change: 0,
-              close: 0,
-              delayed: false,
-              description: nil,
-              exchangeName: nil,
-              fiftyTwoWeekHigh: 0,
-              fiftyTwoWeekLow: 0,
-              highPrice: 0,
-              last: 0,
-              lowPrice: 0,
-              mark: 0,
-              markChange: 0,
-              markPercentChange: 0,
-              openPrice: 0,
-              percentChange: 0,
-              quoteTime: 0,
-              symbol: nil,
-              totalVolume: 0,
-              tradeTime: 0
-  end
+  @derive Jason.Encoder
+  defstruct ask: 0,
+            askSize: 0,
+            bid: 0,
+            bidSize: 0,
+            change: 0,
+            close: 0,
+            delayed: false,
+            description: nil,
+            exchangeName: nil,
+            fiftyTwoWeekHigh: 0,
+            fiftyTwoWeekLow: 0,
+            highPrice: 0,
+            last: 0,
+            lowPrice: 0,
+            mark: 0,
+            markChange: 0,
+            markPercentChange: 0,
+            openPrice: 0,
+            percentChange: 0,
+            quoteTime: 0,
+            symbol: nil,
+            totalVolume: 0,
+            tradeTime: 0
+end
 
-  defmodule Ameritrade.Option.Deliverables do
+defmodule Ameritrade.Option.Deliverables do
   @moduledoc false
-    defstruct symbol: nil,
-              assetType: nil,
-              deliverableUnits: nil,
-              currencyType: nil
-  end
+  @derive Jason.Encoder
+  defstruct symbol: nil,
+            assetType: nil,
+            deliverableUnits: nil,
+            currencyType: nil
+end
 
-  defmodule Ameritrade.Option.Experation.Date do
+defmodule Ameritrade.Option.Experation.Date do
   @moduledoc false
-    defstruct date: nil
-  end
-
+  @derive Jason.Encoder
+  defstruct date: nil
+end

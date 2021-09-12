@@ -1,5 +1,6 @@
 defmodule Ameritrade.Market.Hours do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct category: nil,
             date: nil,
             exchange: nil,

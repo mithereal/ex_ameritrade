@@ -9,9 +9,11 @@ defmodule Ameritrade.OAuth do
   ]
 
   def client(opts \\ []) do
-    config = Application.get_env(:ueberauth, __MODULE__, [])
+    config = Application.fetch_env!(:ameritrade, :client_id)
 
-    client_id = config[:client_id] <> "@AMER.OAUTHAP"
+    config = to_string(config)
+
+    client_id = config <> "@AMER.OAUTHAP"
 
     client_id = [client_id: client_id]
 
@@ -52,6 +54,12 @@ defmodule Ameritrade.OAuth do
     [token: token]
     |> client
     |> OAuth2.Client.delete(url, headers, opts)
+  end
+
+  def patch(token, url, headers \\ [], opts \\ []) do
+    [token: token]
+    |> client
+    |> OAuth2.Client.patch(url, headers, opts)
   end
 
   def get_token!(params \\ [], opts \\ []) do

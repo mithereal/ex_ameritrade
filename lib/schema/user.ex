@@ -1,5 +1,5 @@
 defmodule Ameritrade.User.Principals do
-@moduledoc false
+  @moduledoc false
 
   alias Ameritrade.User.Quotes
   alias Ameritrade.User.StreamerInfo
@@ -22,6 +22,7 @@ defmodule Ameritrade.User.Principals do
           accounts: list
         }
 
+  @derive Jason.Encoder
   defstruct authToken: nil,
             userId: nil,
             userCdDomainId: nil,
@@ -38,7 +39,7 @@ defmodule Ameritrade.User.Principals do
 end
 
 defmodule Ameritrade.User.StreamerInfo do
-@moduledoc false
+  @moduledoc false
   @type t :: %__MODULE__{
           streamerBinaryUrl: String.t() | nil,
           streamerSocketUrl: String.t() | nil,
@@ -49,7 +50,7 @@ defmodule Ameritrade.User.StreamerInfo do
           acl: String.t() | nil,
           appId: String.t() | nil
         }
-
+  @derive Jason.Encoder
   defstruct streamerBinaryUrl: nil,
             streamerSocketUrl: nil,
             token: nil,
@@ -61,7 +62,7 @@ defmodule Ameritrade.User.StreamerInfo do
 end
 
 defmodule Ameritrade.User.Quotes do
-@moduledoc false
+  @moduledoc false
 
   @type t :: %__MODULE__{
           isNyseDelayed: Boolean.t(),
@@ -72,7 +73,7 @@ defmodule Ameritrade.User.Quotes do
           isIceDelayed: Boolean.t(),
           isForexDelayed: Boolean.t()
         }
-
+  @derive Jason.Encoder
   defstruct isNyseDelayed: false,
             isNasdaqDelayed: false,
             isOpraDelayed: false,
@@ -83,17 +84,17 @@ defmodule Ameritrade.User.Quotes do
 end
 
 defmodule Ameritrade.User.StreamerSubscriptionKeys do
-@moduledoc false
+  @moduledoc false
 
   @type t :: %__MODULE__{
           keys: list
         }
-
+  @derive Jason.Encoder
   defstruct keys: []
 end
 
 defmodule Ameritrade.User.Account do
-@moduledoc false
+  @moduledoc false
 
   alias Ameritrade.User.Account.Preferences
   alias Ameritrade.User.Account.Authorizations
@@ -110,7 +111,7 @@ defmodule Ameritrade.User.Account do
           acl: String.t() | nil,
           authorizations: map
         }
-
+  @derive Jason.Encoder
   defstruct accountId: nil,
             description: nil,
             displayName: nil,
@@ -124,7 +125,7 @@ defmodule Ameritrade.User.Account do
 end
 
 defmodule Ameritrade.User.Account.Preferences do
-@moduledoc false
+  @moduledoc false
 
   @type t :: %__MODULE__{
           expressTrading: Boolean.t(),
@@ -142,7 +143,7 @@ defmodule Ameritrade.User.Account.Preferences do
           defaultAdvancedToolLaunch: String.t() | nil,
           authTokenTimeout: String.t() | nil
         }
-
+  @derive Jason.Encoder
   defstruct expressTrading: false,
             directOptionsRouting: false,
             directEquityRouting: false,
@@ -160,7 +161,7 @@ defmodule Ameritrade.User.Account.Preferences do
 end
 
 defmodule Ameritrade.User.Account.Authorizations do
-@moduledoc false
+  @moduledoc false
 
   @type t :: %__MODULE__{
           apex: Boolean.t(),
@@ -173,7 +174,7 @@ defmodule Ameritrade.User.Account.Authorizations do
           advancedMargin: Boolean.t(),
           scottradeAccount: Boolean.t()
         }
-
+  @derive Jason.Encoder
   defstruct apex: false,
             levelTwoQuotes: false,
             stockTrading: false,

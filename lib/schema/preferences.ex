@@ -1,5 +1,6 @@
 defmodule Ameritrade.Preferences do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct(
     expressTrading: false,
     directOptionsRouting: false,

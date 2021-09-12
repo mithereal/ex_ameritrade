@@ -1,5 +1,6 @@
 defmodule Ameritrade.Strategies do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct session: 0,
             duration: 0,
             orderType: 0,

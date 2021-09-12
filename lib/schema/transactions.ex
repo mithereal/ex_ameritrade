@@ -1,5 +1,6 @@
 defmodule Ameritrade.Transaction do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct type: nil,
             clearingReferenceNumber: nil,
             subAccount: nil,
@@ -22,7 +23,8 @@ defmodule Ameritrade.Transaction do
 end
 
 defmodule Ameritrade.Transaction.Item do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct accountId: 0,
             amount: 0,
             price: 0,
@@ -35,7 +37,8 @@ defmodule Ameritrade.Transaction.Item do
 end
 
 defmodule Ameritrade.Transaction.Item.Instrument do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct symbol: nil,
             underlyingSymbol: nil,
             optionExpirationDate: nil,

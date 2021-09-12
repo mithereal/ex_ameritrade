@@ -1,10 +1,13 @@
 defmodule Ameritrade.Account do
   @moduledoc false
+
+  @derive Jason.Encoder
   defstruct securitiesAccount: nil
 end
 
 defmodule Ameritrade.Account.Cash do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct type: nil,
             accountId: nil,
             roundTrips: 0,
@@ -34,7 +37,8 @@ defmodule Ameritrade.Account.Cash do
 end
 
 defmodule Ameritrade.Account.Margin do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct type: nil,
             accountId: nil,
             roundTrips: 0,

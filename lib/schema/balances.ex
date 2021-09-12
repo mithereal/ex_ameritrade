@@ -1,5 +1,6 @@
 defmodule Ameritrade.Balances do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct accruedInterest: 0,
             availableFundsNonMarginableTrade: 0,
             bondValue: 0,

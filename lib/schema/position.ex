@@ -1,5 +1,6 @@
 defmodule Ameritrade.Position do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct shortQuantity: 0,
             averagePrice: 0,
             currentDayProfitLoss: 0,

@@ -1,5 +1,6 @@
 defmodule Ameritrade.Order do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct session: nil,
             duration: nil,
             orderType: nil,
@@ -38,7 +39,8 @@ defmodule Ameritrade.Order do
 end
 
 defmodule Ameritrade.Order.Saved do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct session: nil,
             duration: nil,
             orderType: nil,
@@ -80,7 +82,8 @@ defmodule Ameritrade.Order.Saved do
 end
 
 defmodule Ameritrade.Order.Strategies do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct session: nil,
             duration: nil,
             orderType: nil,
@@ -105,7 +108,8 @@ defmodule Ameritrade.Order.Strategies do
 end
 
 defmodule Ameritrade.Order.Leg.Collection do
-@moduledoc false
+  @moduledoc false
+  @derive Jason.Encoder
   defstruct orderLegType: nil,
             legId: 0,
             instrument: nil,
