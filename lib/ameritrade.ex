@@ -8,6 +8,10 @@ defmodule Ameritrade do
   @doc """
   User Principal details.
 
+  ## Example
+        
+        iex>  Ameritrade.get_user_principals(token)
+
   """
   def get_user_principals(token) do
     path = "https://api.tdameritrade.com/v1/userprincipals"
@@ -16,12 +20,23 @@ defmodule Ameritrade do
 
   @doc """
   Preferences for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_user_preferences(token, account_id)
   """
   def get_user_preferences(token, account_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/preferences"
     OAuth.get(token, path)
   end
 
+  @doc """
+  Preferences for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_user_preferences!(token, account_id)
+  """
   def get_user_preferences!(token, account_id) do
     {status, json} = get_user_preferences(token, account_id)
 
@@ -30,6 +45,10 @@ defmodule Ameritrade do
 
   @doc """
   Preferences for a specific account.
+
+  ## Example
+
+         iex>  Ameritrade.get_streamer_subscription_keys(token, account_ids)
   """
   def get_streamer_subscription_keys(token, account_ids) do
     path =
@@ -38,6 +57,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Preferences for a specific account.
+
+  ## Example
+
+         iex>  Ameritrade.get_streamer_subscription_keys!(token, account_ids)
+  """
   def get_streamer_subscription_keys!(token, account_ids) do
     {status, json} = get_streamer_subscription_keys(token, account_ids)
 
@@ -48,12 +74,25 @@ defmodule Ameritrade do
   Update preferences for a specific account.
 
   Please note that the directOptionsRouting and directEquityRouting values cannot be modified via this operation.
+
+  ## Example
+
+        iex>  Ameritrade.update_preferences(token, account_id, values)
   """
   def update_preferences(token, account_id, values) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/preferences"
     OAuth.put(token, path, values)
   end
 
+  @doc """
+  Update preferences for a specific account.
+
+  Please note that the directOptionsRouting and directEquityRouting values cannot be modified via this operation.
+
+  ## Example
+
+        iex>  Ameritrade.update_preferences!(token, account_id, values)
+  """
   def update_preferences!(token, account_id, values) do
     {status, json} = Ameritrade.update_preferences(token, account_id, values)
     json
@@ -61,6 +100,10 @@ defmodule Ameritrade do
 
   @doc """
   Account balances, positions, and orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_account(token, id, fields)
   """
   def get_account(token, id, fields \\ []) do
     path =
@@ -74,6 +117,13 @@ defmodule Ameritrade do
       end
   end
 
+  @doc """
+  Account balances, positions, and orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_account!(token, id, fields)
+  """
   def get_account!(token, id, fields \\ []) do
     {status, json} = Ameritrade.get_account(token, id, fields)
     json
@@ -81,6 +131,10 @@ defmodule Ameritrade do
 
   @doc """
   Account balances, positions, and orders for all linked accounts.
+
+  ## Example
+
+        iex>  Ameritrade.get_accounts(token, id, fields)
   """
   def get_accounts(token, id, fields \\ []) do
     path =
@@ -96,6 +150,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Account balances, positions, and orders for all linked accounts.
+
+  ## Example
+
+        iex>  Ameritrade.get_accounts!(token, id, fields)
+  """
   def get_accounts!(token, id, fields \\ []) do
     {status, json} = Ameritrade.get_accounts(token, id, fields)
     json
@@ -104,12 +165,22 @@ defmodule Ameritrade do
   @doc """
   Get quote for one or more symbols
 
+  ## Example
+
+         iex>  Ameritrade.get_quotes(token)
   """
   def get_quotes(token) do
     path = "https://api.tdameritrade.com/v1/marketdata/quotes"
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get quote for one or more symbols
+
+  ## Example
+
+         iex>  Ameritrade.get_quotes!(token)
+  """
   def get_quotes!(token) do
     {status, json} = get_quotes(token)
     json
@@ -118,12 +189,22 @@ defmodule Ameritrade do
   @doc """
   Get quote for a symbol
 
+  ## Example
+
+         iex>  Ameritrade.get_quote(token, symbol)
   """
   def get_quote(token, symbol \\ "GOOGL") do
     path = "https://api.tdameritrade.com/v1/marketdata/#{symbol}/quotes"
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get quote for a symbol
+
+  ## Example
+
+        iex>  Ameritrade.get_quote!(token, symbol)
+  """
   def get_quote!(token, symbol \\ "GOOGL") do
     {status, json} = Ameritrade.get_quote(token, symbol)
     json
@@ -131,12 +212,23 @@ defmodule Ameritrade do
 
   @doc """
   Orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_orders_by_path(token, account_id, order_id)
   """
   def get_orders_by_path(token, account_id, order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/"
     OAuth.get(token, path)
   end
 
+  @doc """
+  Orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_orders_by_path!(token, account_id, order_id)
+  """
   def get_orders_by_path!(token, account_id, order_id) do
     {status, json} = Ameritrade.get_orders_by_path(token, account_id, order_id)
     json
@@ -144,99 +236,176 @@ defmodule Ameritrade do
 
   @doc """
   All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts.
+
+  ## Example
+
+        iex>  Ameritrade.get_orders_by_query(token, map)
   """
-  def get_orders_by_query(token, %{
-        accountId: accountId,
-        maxResults: maxResults,
-        fromEnteredTime: fromEnteredTime,
-        toEnteredTime: toEnteredTime,
-        status: status
-      }) do
+  def get_orders_by_query(
+        token,
+        %{
+          accountId: accountId,
+          maxResults: maxResults,
+          fromEnteredTime: fromEnteredTime,
+          toEnteredTime: toEnteredTime,
+          status: status
+        }
+      ) do
     path =
-      "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{fromEnteredTime}&toEnteredTime=#{toEnteredTime}&status#{status}"
+      "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{
+        fromEnteredTime
+      }&toEnteredTime=#{toEnteredTime}&status#{status}"
 
     OAuth.get(token, path)
   end
 
-  def get_orders_by_query!(token, %{
-        accountId: accountId,
-        maxResults: maxResults,
-        fromEnteredTime: fromEnteredTime,
-        toEnteredTime: toEnteredTime,
-        status: status
-      }) do
+  @doc """
+  All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts.
+
+  ## Example
+
+        iex>  Ameritrade.get_orders_by_query!(token, map)
+  """
+  def get_orders_by_query!(
+        token,
+        %{
+          accountId: accountId,
+          maxResults: maxResults,
+          fromEnteredTime: fromEnteredTime,
+          toEnteredTime: toEnteredTime,
+          status: status
+        }
+      ) do
     {status, json} =
-      Ameritrade.get_orders_by_query(token, %{
-        accountId: accountId,
-        maxResults: maxResults,
-        fromEnteredTime: fromEnteredTime,
-        toEnteredTime: toEnteredTime,
-        status: status
-      })
+      Ameritrade.get_orders_by_query(
+        token,
+        %{
+          accountId: accountId,
+          maxResults: maxResults,
+          fromEnteredTime: fromEnteredTime,
+          toEnteredTime: toEnteredTime,
+          status: status
+        }
+      )
 
     json
   end
 
   @doc """
   Get a specific order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_order(token, account_id, order_id)
   """
   def get_order(token, account_id, order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get a specific order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_order!(token, account_id, order_id)
+  """
   def get_order!(token, account_id, order_id) do
     {status, json} = Ameritrade.get_order(token, account_id, order_id)
     json
   end
 
   @doc """
-  Cancel a specific order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  Cancel a specific order for a specific account.   Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.cancel_order(token, account_id, order_id)
   """
   def cancel_order(token, account_id, order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
     OAuth.delete(token, path)
   end
 
+  @doc """
+  Cancel a specific order for a specific account. Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.cancel_order!(token, account_id, order_id)
+  """
   def cancel_order!(token, account_id, order_id) do
     {status, json} = Ameritrade.cancel_order(token, account_id, order_id)
     json
   end
 
   @doc """
-  Place an order for a specific account.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  Place an order for a specific account.   Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.place_order(token, account_id, order)
   """
   def place_order(token, account_id, order) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders"
     OAuth.post(token, path, order)
   end
 
+  @doc """
+  Place an order for a specific account.   Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.place_order!(token, account_id, order)
+  """
   def place_order!(token, account_id, order) do
     {status, json} = Ameritrade.place_order(token, account_id, order)
     json
   end
 
   @doc """
-  Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created.   Order throttle limits may apply.  Click here for to see our Place Order Samples Guide for more information around order throttles and examples of orders.
+  Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created.   Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.replace_order(token, account_id, order_id, new_order_data)
   """
   def replace_order(token, account_id, order_id, new_order_data) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/#{order_id}"
     OAuth.put(token, path, new_order_data)
   end
 
+  @doc """
+  Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created.   Order throttle limits may apply.
+
+  ## Example
+
+        iex>  Ameritrade.replace_order!(token, account_id, order_id, new_order_data)
+  """
   def replace_order!(token, account_id, order_id, new_order_data) do
     {status, json} = Ameritrade.replace_order(token, account_id, order_id, new_order_data)
     json
   end
 
   @doc """
-  Save an order for a specific account. Click here for to see our Place Order Samples Guide.
+  Save an order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.create_saved_order(token, account_id, order)
   """
   def create_saved_order(token, account_id, order) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/savedorders"
     OAuth.post(token, path, order)
   end
 
+  @doc """
+  Save an order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.create_saved_order!(token, account_id, order)
+  """
   def create_saved_order!(token, account_id, order) do
     {status, json} = Ameritrade.create_saved_order(token, account_id, order)
     json
@@ -244,6 +413,10 @@ defmodule Ameritrade do
 
   @doc """
   Delete a specific saved order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.delete_saved_order(token, account_id, order_id)
   """
   def delete_saved_order(token, account_id, order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/savedorders/#{order_id}"
@@ -251,6 +424,13 @@ defmodule Ameritrade do
     OAuth.delete(token, path)
   end
 
+  @doc """
+  Delete a specific saved order for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.delete_saved_order!(token, account_id, order_id)
+  """
   def delete_saved_order!(token, account_id, order_id) do
     {status, json} = Ameritrade.delete_saved_order(token, account_id, order_id)
     json
@@ -258,6 +438,10 @@ defmodule Ameritrade do
 
   @doc """
   Specific saved order by its ID, for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_saved_order(token, account_id, order_id)
   """
   def get_saved_order(token, account_id, order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/savedorders/#{order_id}"
@@ -265,6 +449,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Specific saved order by its ID, for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_saved_order!(token, account_id, order_id)
+  """
   def get_saved_order!(token, account_id, order_id) do
     {status, json} = Ameritrade.get_saved_order(token, account_id, order_id)
     json
@@ -272,6 +463,10 @@ defmodule Ameritrade do
 
   @doc """
   Saved orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_saved_orders_by_path(token, account_id)
   """
   def get_saved_orders_by_path(token, account_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/savedorders"
@@ -279,13 +474,24 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Saved orders for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_saved_orders_by_path!(token, account_id)
+  """
   def get_saved_orders_by_path!(token, account_id) do
     {status, json} = Ameritrade.get_saved_orders_by_path(token, account_id)
     json
   end
 
   @doc """
-  Replace an existing saved order for an account. The existing saved order will be replaced by the new order. Click here for to see our Place Order Samples Guide.
+  Replace an existing saved order for an account. The existing saved order will be replaced by the new order.
+
+  ## Example
+
+        iex>  Ameritrade.replace_saved_order(token, account_id, saved_order_id, values)
   """
   def replace_saved_order(token, account_id, saved_order_id, values) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/savedorders/#{saved_order_id}"
@@ -293,6 +499,13 @@ defmodule Ameritrade do
     OAuth.put(token, path, values)
   end
 
+  @doc """
+  Replace an existing saved order for an account. The existing saved order will be replaced by the new order.
+
+  ## Example
+
+        iex>  Ameritrade.replace_saved_order!(token, account_id, saved_order_id, values)
+  """
   def replace_saved_order!(token, account_id, saved_order_id, values) do
     {status, json} = Ameritrade.replace_saved_order(token, account_id, saved_order_id, values)
     json
@@ -300,6 +513,10 @@ defmodule Ameritrade do
 
   @doc """
   Search or retrieve instrument data, including fundamental data.
+
+  ## Example
+
+        iex>  Ameritrade.get_search_instruments(token, symbol, projection)
   """
   def get_search_instruments(token, symbol, projection) do
     path =
@@ -308,6 +525,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Search or retrieve instrument data, including fundamental data.
+
+  ## Example
+
+        iex>  Ameritrade.get_search_instruments!(token, symbol, projection)
+  """
   def get_search_instruments!(token, symbol, projection) do
     {status, json} = Ameritrade.get_search_instruments(token, symbol, projection)
     json
@@ -315,6 +539,10 @@ defmodule Ameritrade do
 
   @doc """
   Get an instrument by CUSIP
+
+  ## Example
+
+        iex>  Ameritrade.get_instrument(token, cusip)
   """
   def get_instrument(token, cusip) do
     path = "https://api.tdameritrade.com/v1/instruments/#{cusip}"
@@ -322,6 +550,11 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get an instrument by CUSIP
+
+        iex>  Ameritrade.get_instrument!(token, cusip)
+  """
   def get_instrument!(token, cusip) do
     {status, json} = Ameritrade.get_instrument(token, cusip)
     json
@@ -329,6 +562,10 @@ defmodule Ameritrade do
 
   @doc """
   Top 10 (up or down) movers by value or percent for a particular market
+
+  ## Example
+
+        iex>  Ameritrade.get_movers(token, index, direction, change)
   """
   def get_movers(token, index, direction \\ "up", change \\ "value") do
     path =
@@ -337,6 +574,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Top 10 (up or down) movers by value or percent for a particular market
+
+  ## Example
+
+        iex>  Ameritrade.get_movers!(token, index, direction, change)
+  """
   def get_movers!(token, index, direction \\ "up", change \\ "value") do
     {status, json} = Ameritrade.get_movers(token, index, direction, change)
     json
@@ -344,6 +588,10 @@ defmodule Ameritrade do
 
   @doc """
   Get option chain for an optionable Symbol
+
+  ## Example
+
+        iex>  Ameritrade.get_option_chain(token,symbol,contractType,strikeCount,includeQuotes,strategy,interval,strike,range,fromDate,toDate,volatility,underlyingPrice,interestRate,daysToExpiration,expMonth,optionType)
   """
   def get_option_chain(
         token,
@@ -365,11 +613,24 @@ defmodule Ameritrade do
         optionType \\ "ALL"
       ) do
     path =
-      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{strikeCount}&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{range}&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{interestRate}&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
+      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{
+        strikeCount
+      }&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{
+        range
+      }&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{
+        interestRate
+      }&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
 
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get option chain for an optionable Symbol
+
+  ## Example
+
+        iex>  Ameritrade.get_option_chain!(token,symbol,contractType,strikeCount,includeQuotes,strategy,interval,strike,range,fromDate,toDate,volatility,underlyingPrice,interestRate,daysToExpiration,expMonth,optionType)
+  """
   def get_option_chain!(
         token,
         symbol,
@@ -415,6 +676,10 @@ defmodule Ameritrade do
 
   @doc """
   Get price history for a symbol
+
+  ## Example
+
+        iex>  Ameritrade.get_price_history(token,symbol, periodType,period,frequencyType,frequencyendDate,startDate,needExtendedHoursData)
   """
   def get_price_history(
         token,
@@ -430,15 +695,28 @@ defmodule Ameritrade do
     path =
       case endDate != nil && startDate != nil do
         true ->
-          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&frequencyType=#{frequencyType}&frequency=#{frequency}&endDate=#{endDate}&startDate=#{startDate}&needExtendedHoursData=#{needExtendedHoursData}"
+          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&frequencyType=#{
+            frequencyType
+          }&frequency=#{frequency}&endDate=#{endDate}&startDate=#{startDate}&needExtendedHoursData=#{
+            needExtendedHoursData
+          }"
 
         false ->
-          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&period=#{period}&frequencyType=#{frequencyType}&frequency=#{frequency}&needExtendedHoursData=#{needExtendedHoursData}"
+          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&period=#{
+            period
+          }&frequencyType=#{frequencyType}&frequency=#{frequency}&needExtendedHoursData=#{needExtendedHoursData}"
       end
 
     OAuth.get(token, path)
   end
 
+  @doc """
+  Get price history for a symbol
+
+  ## Example
+
+        iex>  Ameritrade.get_price_history!(token,symbol, periodType,period,frequencyType,frequencyendDate,startDate,needExtendedHoursData)
+  """
   def get_price_history!(
         token,
         symbol,
@@ -469,6 +747,9 @@ defmodule Ameritrade do
   @doc """
   Transaction for a specific account.
 
+  ## Example
+
+        iex>  Ameritrade.get_transaction(token, accountId, transactionId)
   """
   def get_transaction(token, accountId, transactionId) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/transactions/#{transactionId}"
@@ -476,6 +757,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  Transaction for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_transaction!(token, accountId, transactionId)
+  """
   def get_transaction!(token, accountId, transactionId) do
     {status, json} = Ameritrade.get_transaction(token, accountId, transactionId)
     json
@@ -484,14 +772,26 @@ defmodule Ameritrade do
   @doc """
   Transactions for a specific account.
 
+  ## Example
+
+        iex>  Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
   """
   def get_transactions(token, accountId, symbol, startDate, endDate) do
     path =
-      "https://api.tdameritrade.com/v1/accounts/#{accountId}/transactions?symbol=#{symbol}&startDate=#{startDate}&endDate=#{endDate}"
+      "https://api.tdameritrade.com/v1/accounts/#{accountId}/transactions?symbol=#{symbol}&startDate=#{
+        startDate
+      }&endDate=#{endDate}"
 
     OAuth.get(token, path)
   end
 
+  @doc """
+  Transactions for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
+  """
   def get_transactions!(token, accountId, symbol, startDate, endDate) do
     {status, json} = Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
     json
@@ -499,6 +799,10 @@ defmodule Ameritrade do
 
   @doc """
   Create watchlist for specific account.This method does not verify that the symbol or asset type are valid.
+
+  ## Example
+
+        iex>  Ameritrade.create_watchlist(token, accountId, data)
   """
   def create_watchlist(token, accountId, data) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists"
@@ -506,6 +810,13 @@ defmodule Ameritrade do
     OAuth.post(token, path, data)
   end
 
+  @doc """
+  Create watchlist for specific account.This method does not verify that the symbol or asset type are valid.
+
+  ## Example
+
+        iex>  Ameritrade.create_watchlist!(token, accountId, data)
+  """
   def create_watchlist!(token, accountId, data) do
     {status, json} = Ameritrade.create_watchlist(token, accountId, data)
     json
@@ -514,6 +825,9 @@ defmodule Ameritrade do
   @doc """
   Delete watchlist for a specific account.
 
+  ## Example
+
+        iex>  Ameritrade.delete_watchlist(token, accountId, watchlistId)
   """
   def delete_watchlist(token, accountId, watchlistId) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists/#{watchlistId}"
@@ -521,6 +835,11 @@ defmodule Ameritrade do
     OAuth.delete(token, path)
   end
 
+  @doc """
+  Delete watchlist for a specific account.
+
+        iex>  Ameritrade.delete_watchlist!(token, accountId, watchlistId)
+  """
   def delete_watchlist!(token, accountId, watchlistId) do
     {status, json} = Ameritrade.delete_watchlist(token, accountId, watchlistId)
     json
@@ -529,6 +848,9 @@ defmodule Ameritrade do
   @doc """
   All watchlists for all of the user's linked accounts.
 
+  ## Example
+
+        iex>  Ameritrade.get_multiple_watchlist(token, accountId, watchlistId)
   """
   def get_multiple_watchlist(token, accountId, watchlistId) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists/#{watchlistId}"
@@ -536,6 +858,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+  All watchlists for all of the user's linked accounts.
+
+  ## Example
+
+        iex>  Ameritrade.get_multiple_watchlist!(token, accountId, watchlistId)
+  """
   def get_multiple_watchlist!(token, accountId, watchlistId) do
     {status, json} = Ameritrade.get_multiple_watchlist(token, accountId, watchlistId)
     json
@@ -544,6 +873,9 @@ defmodule Ameritrade do
   @doc """
    Specific watchlist for a specific account.
 
+  ## Example
+
+        iex>  Ameritrade.get_watchlists(token, accountId)
   """
   def get_watchlists(token, accountId) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists"
@@ -551,6 +883,13 @@ defmodule Ameritrade do
     OAuth.get(token, path)
   end
 
+  @doc """
+   Specific watchlist for a specific account.
+
+  ## Example
+
+        iex>  Ameritrade.get_watchlists!(token, accountId)
+  """
   def get_watchlists!(token, accountId) do
     {status, json} = Ameritrade.get_watchlists(token, accountId)
     json
@@ -559,6 +898,9 @@ defmodule Ameritrade do
   @doc """
   Replace watchlist for a specific account. This method does not verify that the symbol or asset type are valid.
 
+  ## Example
+
+        iex>  Ameritrade.replace_watchlist(token, accountId, watchlistId, value)
   """
   def replace_watchlist(token, accountId, watchlistId, value) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists/#{watchlistId}"
@@ -566,6 +908,13 @@ defmodule Ameritrade do
     OAuth.put(token, path, value)
   end
 
+  @doc """
+  Replace watchlist for a specific account. This method does not verify that the symbol or asset type are valid.
+
+  ## Example
+
+        iex>  Ameritrade.replace_watchlist!(token, accountId, watchlistId, value)
+  """
   def replace_watchlist!(token, accountId, watchlistId, value) do
     {status, json} = Ameritrade.replace_watchlist(token, accountId, watchlistId, value)
     json
@@ -574,6 +923,9 @@ defmodule Ameritrade do
   @doc """
   Partially update watchlist for a specific account: change watchlist name, add to the beginning/end of a watchlist, update or delete items in a watchlist. This method does not verify that the symbol or asset type are valid.
 
+  ## Example
+
+        iex>  Ameritrade.update_watchlist(token, accountId, watchlistId, value)
   """
   def update_watchlist(token, accountId, watchlistId, value) do
     path = "https://api.tdameritrade.com/v1/accounts/#{accountId}/watchlists/#{watchlistId}"
@@ -581,6 +933,13 @@ defmodule Ameritrade do
     OAuth.patch(token, path, value)
   end
 
+  @doc """
+  Partially update watchlist for a specific account: change watchlist name, add to the beginning/end of a watchlist, update or delete items in a watchlist. This method does not verify that the symbol or asset type are valid.
+
+  ## Example
+
+        iex>  Ameritrade.update_watchlist!(token, accountId, watchlistId, value)
+  """
   def update_watchlist!(token, accountId, watchlistId, value) do
     {status, json} = Ameritrade.update_watchlist(token, accountId, watchlistId, value)
     json

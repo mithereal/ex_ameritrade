@@ -1,5 +1,11 @@
 # Ameritrade
 
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/ameritrade/)
+[![Hex.pm](https://img.shields.io/hexpm/dt/ameritrade.svg)](https://hex.pm/packages/ameritrade)
+[![License](https://img.shields.io/hexpm/l/ameritrade.svg)](https://github.com/mithereal/ex_ameritrade/blob/master/LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/mithereal/ex_ameritrade.svg)](https://github.com/mithereal/ex_ameritrade/commits/master)
+[![Build Status](https://circleci.com/gh/mithereal/ex_ameritrade.svg?style=svg)](https://github.com/mithereal/ex_ameritrade)
+
 **TD Ameritrade Api**
 
 This module gives us oath access to the td ameritrade api located at "https://developer.tdameritrade.com/apis"
