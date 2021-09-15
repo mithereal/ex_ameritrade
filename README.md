@@ -4,7 +4,7 @@
 [![Hex.pm](https://img.shields.io/hexpm/dt/ameritrade.svg)](https://hex.pm/packages/ameritrade)
 [![License](https://img.shields.io/hexpm/l/ameritrade.svg)](https://github.com/mithereal/ex_ameritrade/blob/master/LICENSE)
 [![Last Updated](https://img.shields.io/github/last-commit/mithereal/ex_ameritrade.svg)](https://github.com/mithereal/ex_ameritrade/commits/master)
-[![Build Status](https://circleci.com/gh/mithereal/ex_ameritrade.svg?style=svg)](https://github.com/mithereal/ex_ameritrade)
+[![Donate](https://img.shields.io/liberapay/patrons/mithereal)](https://liberapay.com/Mithereal/donate)
 
 **TD Ameritrade Api**
 
@@ -25,7 +25,7 @@ by adding `ameritrade` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ameritrade, "~> 1.1.0"}
+    {:ameritrade, "~> 1.1.1"}
   ]
 end
 ```

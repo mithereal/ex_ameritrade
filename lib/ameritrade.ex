@@ -252,9 +252,7 @@ defmodule Ameritrade do
         }
       ) do
     path =
-      "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{
-        fromEnteredTime
-      }&toEnteredTime=#{toEnteredTime}&status#{status}"
+      "https://api.tdameritrade.com/v1/orders/?accountId=#{accountId}&maxResults=#{maxResults}&fromEnteredTime=#{fromEnteredTime}&toEnteredTime=#{toEnteredTime}&status#{status}"
 
     OAuth.get(token, path)
   end
@@ -613,13 +611,7 @@ defmodule Ameritrade do
         optionType \\ "ALL"
       ) do
     path =
-      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{
-        strikeCount
-      }&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{
-        range
-      }&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{
-        interestRate
-      }&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
+      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{strikeCount}&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{range}&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{interestRate}&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
 
     OAuth.get(token, path)
   end
@@ -695,16 +687,10 @@ defmodule Ameritrade do
     path =
       case endDate != nil && startDate != nil do
         true ->
-          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&frequencyType=#{
-            frequencyType
-          }&frequency=#{frequency}&endDate=#{endDate}&startDate=#{startDate}&needExtendedHoursData=#{
-            needExtendedHoursData
-          }"
+          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&frequencyType=#{frequencyType}&frequency=#{frequency}&endDate=#{endDate}&startDate=#{startDate}&needExtendedHoursData=#{needExtendedHoursData}"
 
         false ->
-          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&period=#{
-            period
-          }&frequencyType=#{frequencyType}&frequency=#{frequency}&needExtendedHoursData=#{needExtendedHoursData}"
+          "https://api.tdameritrade.com/v1/marketdata/#{symbol}/pricehistory?&periodType=#{periodType}&period=#{period}&frequencyType=#{frequencyType}&frequency=#{frequency}&needExtendedHoursData=#{needExtendedHoursData}"
       end
 
     OAuth.get(token, path)
@@ -778,9 +764,7 @@ defmodule Ameritrade do
   """
   def get_transactions(token, accountId, symbol, startDate, endDate) do
     path =
-      "https://api.tdameritrade.com/v1/accounts/#{accountId}/transactions?symbol=#{symbol}&startDate=#{
-        startDate
-      }&endDate=#{endDate}"
+      "https://api.tdameritrade.com/v1/accounts/#{accountId}/transactions?symbol=#{symbol}&startDate=#{startDate}&endDate=#{endDate}"
 
     OAuth.get(token, path)
   end
