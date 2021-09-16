@@ -19,6 +19,20 @@ defmodule Ameritrade do
   end
 
   @doc """
+  User Principal details.
+
+  ## Example
+
+        iex>  Ameritrade.get_user_principals(token, ["streamerSubscriptionKeys"])
+
+  """
+  def get_user_principals(token, fields) do
+    fields = Enum.join(fields, ",")
+    path = "https://api.tdameritrade.com/v1/userprincipals?fields=#{fields}"
+    OAuth.get(token, path)
+  end
+
+  @doc """
   Preferences for a specific account.
 
   ## Example
