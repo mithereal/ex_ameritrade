@@ -23,7 +23,7 @@ defmodule Ameritrade.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :jason]
     ]
   end
 
@@ -33,7 +33,8 @@ defmodule Ameritrade.MixProject do
       {:jason, "~> 1.0"},
       {:oauth2, "~> 1.0 or ~> 2.0"},
       {:inch_ex, ">= 0.0.0", only: [:test, :dev]},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:credo, "~> 1.6.1", only: [:dev, :test], runtime: false}
     ]
   end
 
