@@ -25,13 +25,11 @@ defmodule Ameritrade.Account.Cash do
             enteredTime: nil,
             closeTime: nil,
             tag: nil,
-            accountId: 0,
             orderActivityCollection: [],
             replacingOrderCollection: [],
             childOrderStrategies: [],
             statusDescription: nil,
             initialBalances: [],
-            currentBalances: [],
             currentBalances: [],
             projectedBalances: []
 end
