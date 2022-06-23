@@ -1,5 +1,9 @@
 defmodule Ameritrade.OAuth do
+  @moduledoc false
+
   use OAuth2.Strategy
+
+  alias OAuth2.Strategy.AuthCode
 
   @defaults [
     strategy: __MODULE__,
@@ -92,7 +96,7 @@ defmodule Ameritrade.OAuth do
   # Strategy Callbacks
 
   def authorize_url(client, params) do
-    OAuth2.Strategy.AuthCode.authorize_url(client, params)
+    AuthCode.authorize_url(client, params)
   end
 
   def get_token(client, params, headers) do

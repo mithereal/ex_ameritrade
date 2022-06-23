@@ -1,4 +1,6 @@
 defmodule Ameritrade.Response do
+  @moduledoc false
+
   @derive Jason.Encoder
   defstruct [
     :service,
