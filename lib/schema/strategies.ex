@@ -34,7 +34,6 @@ defmodule Ameritrade.Strategies do
             tag: nil,
             accountId: 0,
             orderActivityCollection: [],
-            orderActivityCollection: [],
             childOrderStrategies: [],
             statusDescription: nil
 end

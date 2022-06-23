@@ -149,7 +149,7 @@ defmodule Ameritrade do
 
         iex>  Ameritrade.get_accounts(token, id, fields)
   """
-  def get_accounts(token, id, fields \\ []) do
+  def get_accounts(token, _id, fields \\ []) do
     path =
       case(Enum.count(fields)) do
         0 ->
@@ -230,7 +230,7 @@ defmodule Ameritrade do
 
         iex>  Ameritrade.get_orders_by_path(token, account_id, order_id)
   """
-  def get_orders_by_path(token, account_id, order_id) do
+  def get_orders_by_path(token, account_id, _order_id) do
     path = "https://api.tdameritrade.com/v1/accounts/#{account_id}/orders/"
     OAuth.get(token, path)
   end
@@ -624,7 +624,7 @@ defmodule Ameritrade do
         optionType \\ "ALL"
       ) do
     path =
-      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{strikeCount}&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{range}&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{interestRate}&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
+      "https://api.tdameritrade.com/v1/marketdata/chains?symbol=#{symbol}&contractType=#{contractType}&strikeCount=#{strikeCount}&includeQuotes=#{includeQuotes}&strategy=#{strategy}&interval=#{interval}&strike=#{strike}&range=#{range}&fromDate=#{fromDate}&toDate=#{toDate}&volatility=#{volatility}&underlyingPrice=#{underlyingPrice}&interestRate=#{interestRate}&daysToExpiration=#{daysToExpiration}&expMonth=#{expMonth}&optionType=#{optionType}"
 
     OAuth.get(token, path)
   end
