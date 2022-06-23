@@ -52,7 +52,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_user_preferences!(token, account_id)
   """
   def get_user_preferences!(token, account_id) do
-    {status, json} = get_user_preferences(token, account_id)
+    {_status, json} = get_user_preferences(token, account_id)
 
     json
   end
@@ -79,7 +79,7 @@ defmodule Ameritrade do
          iex>  Ameritrade.get_streamer_subscription_keys!(token, account_ids)
   """
   def get_streamer_subscription_keys!(token, account_ids) do
-    {status, json} = get_streamer_subscription_keys(token, account_ids)
+    {_status, json} = get_streamer_subscription_keys(token, account_ids)
 
     json
   end
@@ -108,7 +108,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.update_preferences!(token, account_id, values)
   """
   def update_preferences!(token, account_id, values) do
-    {status, json} = Ameritrade.update_preferences(token, account_id, values)
+    {_status, json} = Ameritrade.update_preferences(token, account_id, values)
     json
   end
 
@@ -119,16 +119,15 @@ defmodule Ameritrade do
 
         iex>  Ameritrade.get_account(token, id, fields)
   """
-  def get_account(token, id, fields \\ []) do
-    path =
-      case(Enum.count(fields)) do
-        0 ->
-          "https://api.tdameritrade.com/v1/accounts/" <> id
+  def get_account(_token, id, fields \\ []) do
+    case(Enum.count(fields)) do
+      0 ->
+        "https://api.tdameritrade.com/v1/accounts/" <> id
 
-        _ ->
-          params = Enum.join(fields, ",")
-          "https://api.tdameritrade.com/v1/accounts/#{id}?fields=#{params}"
-      end
+      _ ->
+        params = Enum.join(fields, ",")
+        "https://api.tdameritrade.com/v1/accounts/#{id}?fields=#{params}"
+    end
   end
 
   @doc """
@@ -139,7 +138,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_account!(token, id, fields)
   """
   def get_account!(token, id, fields \\ []) do
-    {status, json} = Ameritrade.get_account(token, id, fields)
+    {_status, json} = Ameritrade.get_account(token, id, fields)
     json
   end
 
@@ -172,7 +171,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_accounts!(token, id, fields)
   """
   def get_accounts!(token, id, fields \\ []) do
-    {status, json} = Ameritrade.get_accounts(token, id, fields)
+    {_status, json} = Ameritrade.get_accounts(token, id, fields)
     json
   end
 
@@ -196,7 +195,7 @@ defmodule Ameritrade do
          iex>  Ameritrade.get_quotes!(token)
   """
   def get_quotes!(token) do
-    {status, json} = get_quotes(token)
+    {_status, json} = get_quotes(token)
     json
   end
 
@@ -220,7 +219,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_quote!(token, symbol)
   """
   def get_quote!(token, symbol \\ "GOOGL") do
-    {status, json} = Ameritrade.get_quote(token, symbol)
+    {_status, json} = Ameritrade.get_quote(token, symbol)
     json
   end
 
@@ -244,7 +243,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_orders_by_path!(token, account_id, order_id)
   """
   def get_orders_by_path!(token, account_id, order_id) do
-    {status, json} = Ameritrade.get_orders_by_path(token, account_id, order_id)
+    {_status, json} = Ameritrade.get_orders_by_path(token, account_id, order_id)
     json
   end
 
@@ -288,7 +287,7 @@ defmodule Ameritrade do
           status: status
         }
       ) do
-    {status, json} =
+    {_status, json} =
       Ameritrade.get_orders_by_query(
         token,
         %{
@@ -323,7 +322,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_order!(token, account_id, order_id)
   """
   def get_order!(token, account_id, order_id) do
-    {status, json} = Ameritrade.get_order(token, account_id, order_id)
+    {_status, json} = Ameritrade.get_order(token, account_id, order_id)
     json
   end
 
@@ -347,7 +346,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.cancel_order!(token, account_id, order_id)
   """
   def cancel_order!(token, account_id, order_id) do
-    {status, json} = Ameritrade.cancel_order(token, account_id, order_id)
+    {_status, json} = Ameritrade.cancel_order(token, account_id, order_id)
     json
   end
 
@@ -371,7 +370,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.place_order!(token, account_id, order)
   """
   def place_order!(token, account_id, order) do
-    {status, json} = Ameritrade.place_order(token, account_id, order)
+    {_status, json} = Ameritrade.place_order(token, account_id, order)
     json
   end
 
@@ -395,7 +394,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.replace_order!(token, account_id, order_id, new_order_data)
   """
   def replace_order!(token, account_id, order_id, new_order_data) do
-    {status, json} = Ameritrade.replace_order(token, account_id, order_id, new_order_data)
+    {_status, json} = Ameritrade.replace_order(token, account_id, order_id, new_order_data)
     json
   end
 
@@ -419,7 +418,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.create_saved_order!(token, account_id, order)
   """
   def create_saved_order!(token, account_id, order) do
-    {status, json} = Ameritrade.create_saved_order(token, account_id, order)
+    {_status, json} = Ameritrade.create_saved_order(token, account_id, order)
     json
   end
 
@@ -444,7 +443,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.delete_saved_order!(token, account_id, order_id)
   """
   def delete_saved_order!(token, account_id, order_id) do
-    {status, json} = Ameritrade.delete_saved_order(token, account_id, order_id)
+    {_status, json} = Ameritrade.delete_saved_order(token, account_id, order_id)
     json
   end
 
@@ -469,7 +468,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_saved_order!(token, account_id, order_id)
   """
   def get_saved_order!(token, account_id, order_id) do
-    {status, json} = Ameritrade.get_saved_order(token, account_id, order_id)
+    {_status, json} = Ameritrade.get_saved_order(token, account_id, order_id)
     json
   end
 
@@ -494,7 +493,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_saved_orders_by_path!(token, account_id)
   """
   def get_saved_orders_by_path!(token, account_id) do
-    {status, json} = Ameritrade.get_saved_orders_by_path(token, account_id)
+    {_status, json} = Ameritrade.get_saved_orders_by_path(token, account_id)
     json
   end
 
@@ -519,7 +518,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.replace_saved_order!(token, account_id, saved_order_id, values)
   """
   def replace_saved_order!(token, account_id, saved_order_id, values) do
-    {status, json} = Ameritrade.replace_saved_order(token, account_id, saved_order_id, values)
+    {_status, json} = Ameritrade.replace_saved_order(token, account_id, saved_order_id, values)
     json
   end
 
@@ -545,7 +544,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_search_instruments!(token, symbol, projection)
   """
   def get_search_instruments!(token, symbol, projection) do
-    {status, json} = Ameritrade.get_search_instruments(token, symbol, projection)
+    {_status, json} = Ameritrade.get_search_instruments(token, symbol, projection)
     json
   end
 
@@ -568,7 +567,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_instrument!(token, cusip)
   """
   def get_instrument!(token, cusip) do
-    {status, json} = Ameritrade.get_instrument(token, cusip)
+    {_status, json} = Ameritrade.get_instrument(token, cusip)
     json
   end
 
@@ -594,7 +593,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_movers!(token, index, direction, change)
   """
   def get_movers!(token, index, direction \\ "up", change \\ "value") do
-    {status, json} = Ameritrade.get_movers(token, index, direction, change)
+    {_status, json} = Ameritrade.get_movers(token, index, direction, change)
     json
   end
 
@@ -656,7 +655,7 @@ defmodule Ameritrade do
         expMonth \\ "ALL",
         optionType \\ "ALL"
       ) do
-    {status, json} =
+    {_status, json} =
       Ameritrade.get_option_chain(
         token,
         symbol,
@@ -728,7 +727,7 @@ defmodule Ameritrade do
         startDate \\ nil,
         needExtendedHoursData \\ "TRUE"
       ) do
-    {status, json} =
+    {_status, json} =
       Ameritrade.get_price_history(
         token,
         symbol,
@@ -765,7 +764,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_transaction!(token, accountId, transactionId)
   """
   def get_transaction!(token, accountId, transactionId) do
-    {status, json} = Ameritrade.get_transaction(token, accountId, transactionId)
+    {_status, json} = Ameritrade.get_transaction(token, accountId, transactionId)
     json
   end
 
@@ -791,7 +790,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
   """
   def get_transactions!(token, accountId, symbol, startDate, endDate) do
-    {status, json} = Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
+    {_status, json} = Ameritrade.get_transactions(token, accountId, symbol, startDate, endDate)
     json
   end
 
@@ -816,7 +815,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.create_watchlist!(token, accountId, data)
   """
   def create_watchlist!(token, accountId, data) do
-    {status, json} = Ameritrade.create_watchlist(token, accountId, data)
+    {_status, json} = Ameritrade.create_watchlist(token, accountId, data)
     json
   end
 
@@ -839,7 +838,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.delete_watchlist!(token, accountId, watchlistId)
   """
   def delete_watchlist!(token, accountId, watchlistId) do
-    {status, json} = Ameritrade.delete_watchlist(token, accountId, watchlistId)
+    {_status, json} = Ameritrade.delete_watchlist(token, accountId, watchlistId)
     json
   end
 
@@ -864,7 +863,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_multiple_watchlist!(token, accountId, watchlistId)
   """
   def get_multiple_watchlist!(token, accountId, watchlistId) do
-    {status, json} = Ameritrade.get_multiple_watchlist(token, accountId, watchlistId)
+    {_status, json} = Ameritrade.get_multiple_watchlist(token, accountId, watchlistId)
     json
   end
 
@@ -889,7 +888,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.get_watchlists!(token, accountId)
   """
   def get_watchlists!(token, accountId) do
-    {status, json} = Ameritrade.get_watchlists(token, accountId)
+    {_status, json} = Ameritrade.get_watchlists(token, accountId)
     json
   end
 
@@ -914,7 +913,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.replace_watchlist!(token, accountId, watchlistId, value)
   """
   def replace_watchlist!(token, accountId, watchlistId, value) do
-    {status, json} = Ameritrade.replace_watchlist(token, accountId, watchlistId, value)
+    {_status, json} = Ameritrade.replace_watchlist(token, accountId, watchlistId, value)
     json
   end
 
@@ -939,7 +938,7 @@ defmodule Ameritrade do
         iex>  Ameritrade.update_watchlist!(token, accountId, watchlistId, value)
   """
   def update_watchlist!(token, accountId, watchlistId, value) do
-    {status, json} = Ameritrade.update_watchlist(token, accountId, watchlistId, value)
+    {_status, json} = Ameritrade.update_watchlist(token, accountId, watchlistId, value)
     json
   end
 end

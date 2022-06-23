@@ -1,11 +1,6 @@
 defmodule Ameritrade.User.Principals do
   @moduledoc false
 
-  alias Ameritrade.User.Quotes
-  alias Ameritrade.User.StreamerInfo
-  alias Ameritrade.User.StreamerSubscriptionKeys
-  alias Ameritrade.User.Account
-
   @type t :: %__MODULE__{
           authToken: String.t() | nil,
           userId: String.t() | nil,
@@ -95,9 +90,6 @@ end
 
 defmodule Ameritrade.User.Account do
   @moduledoc false
-
-  alias Ameritrade.User.Account.Preferences
-  alias Ameritrade.User.Account.Authorizations
 
   @type t :: %__MODULE__{
           accountId: String.t() | nil,

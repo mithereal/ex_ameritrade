@@ -126,7 +126,7 @@ defmodule Ameritrade.OAuth do
   @doc """
   Adds `authorization` header for ameritrade auth.
   """
-  def client_header(%OAuth2.Client{client_id: id, client_secret: secret} = client) do
+  def client_header(%OAuth2.Client{client_id: id, client_secret: _secret} = client) do
     put_header(client, "authorization", "Basic " <> Base.encode64(id))
   end
 end
