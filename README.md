@@ -31,14 +31,14 @@ end
 
 ## Setup 
 First you must create an application at https://developer.tdameritrade.com/user/me/apps
-make sure the callback url matches your host, ie localhost for local.
+make sure the callback url matches your host, ie localhost for local, you will need the Consumer Key.
 
 ## Config
 
 Add to your config.exs
 ```elixir
 config :ameritrade,
-  client_id: "client_id"
+  client_id: "consumer_key"
 ```
 
 ## Testing / Token
