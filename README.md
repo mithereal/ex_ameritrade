@@ -40,14 +40,22 @@ config :ameritrade,
 ## Testing / Token
 to test we use an env var
 create a .env file with token or global env variable ex.
+
 export EX_AMERITRADE=extracted_ameritrade_token
 
 To get the token
 in iex. or via ameritrade api "https://developer.tdameritrade.com/apis""
 
+after logging in to the authorize_url! you should be able to extract the code from posted to the redirect_url
+
+```elixir
 iex> Ameritrade.OAuth.authorize_url!
 "https://auth.tdameritrade.com/auth?client_id=client_id%40AMER.OAUTHAP&redirect_uri=&response_type=code"
- after logging in you should be able to extract the token from the redirect url
+iex> code = "extracted_code"
+iex>  OAuth.get_token!([code: code], [])
+      |> Ameritrade.get_user_principals()
+```
+
 
 once you have a valid token you can use the various methods avail in the Ameritrade module.
 
