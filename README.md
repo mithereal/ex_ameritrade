@@ -52,8 +52,9 @@ after logging in to the authorize_url! you should be able to extract the code fr
 iex> Ameritrade.OAuth.authorize_url!
 "https://auth.tdameritrade.com/auth?client_id=client_id%40AMER.OAUTHAP&redirect_uri=&response_type=code"
 iex> code = "extracted_code"
-iex>  OAuth.get_token!([code: code], [])
-      |> Ameritrade.get_user_principals()
+iex>  token = OAuth.get_token!([code: code], [])
+iex>  Ameritrade.get_user_principals(token)
+%{}
 ```
 
 
