@@ -29,6 +29,10 @@ def deps do
 end
 ```
 
+## Setup 
+First you must create an application at https://developer.tdameritrade.com/user/me/apps
+make sure the callback url matches your host, ie localhost for local.
+
 ## Config
 
 Add to your config.exs
