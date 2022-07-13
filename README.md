@@ -45,7 +45,7 @@ config :ameritrade,
 to test we use an env var
 create a .env file with token or global env variable ex.
 
-export EX_AMERITRADE=extracted_ameritrade_token
+export EX_AMERITRADE_TOKEN=extracted_ameritrade_token
 
 To get the token
 in iex. or via ameritrade api "https://developer.tdameritrade.com/apis""
